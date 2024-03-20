@@ -52,3 +52,17 @@ for g in rValues:
 bValueCounts = []
 for b in rValues:
     bValueCounts[b] = rValueCounts + 1
+
+#plots the counts of each rgb occurrence
+
+rSpace = range(850, 10001, 1000)
+gSpace = range(1150, 10501, 1000)
+bSpace = range(1450, 1201, 1000)
+fig, ax = plt.subplot(111)
+
+ax.bar(rSpace, rValueCounts, width=300, color='r', align='center')
+ax.bar(gSpace, gValueCounts, width=300, color='g', align='center')
+ax.bar(bSpace, bValueCounts, width=300, color='b', align='center')
+
+fig.savefig("/M3OEP-Image-Stats-Website/RGBoccurrences.png")
+

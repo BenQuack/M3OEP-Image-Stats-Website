@@ -13,10 +13,6 @@
     		<h2>Open Ended Project</h2>
     		<h3>Image Stats Project</h3>
     	</header>
-        <?php
-        $x = "abc";
-        echo "silly and goofy" . $x;
-        ?>
 
         <form action="imageUpload.php" method="post" enctype="multipart/form-data">
           Select image to upload:
