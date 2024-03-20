@@ -14,7 +14,8 @@
     		<h3>Image Stats Project</h3>
     	</header>
         <?php
-        echo "silly and goofy"
+        $x = "abc";
+        echo "silly and goofy" . $x;
         ?>
 
         <form action="imageUpload.php" method="post" enctype="multipart/form-data">
