@@ -16,7 +16,7 @@
         <?php
         //php code found on w3 schools
         $target_dir = "M3OEP-Image-Stats-Website/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -34,7 +34,7 @@
 
         // Check if file already exists
         if (file_exists($target_file)) {
-          echo "Sorry, file already exists.";
+          echo "file already exists.";
           $uploadOk = 0;
         }
 
@@ -49,11 +49,22 @@
           echo "Sorry, your file was not uploaded.";
         // if everything is ok, try to upload file
         } else {
+        // if (move_uploaded_file($_FILES["test-cases"]["tmp_name"], $rand_number . "/" . $file_name)) {
           if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
           } else {
             echo "Sorry, there was an error uploading your file.";
           }
         }
+
+        echo '<br><img src="' . $target_file . '" alt=woops width=400 height=500><br />';
+
+        #running statMaker.py
+        $command = escapeshellcmd('statMaker.py');
+        $output = shell_exec($command);
+
+        echo $output;
+        echo "this has run";
+
         ?>
     </body>
