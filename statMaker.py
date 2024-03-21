@@ -19,6 +19,7 @@ for x in range(dimensions[0]):
         gValues.append(img[x,y][1])
         bValues.append(img[x,y][2])
 
+
 #calculates the average red green and blue value of
 #the image
 avgRValue = 0
@@ -39,6 +40,10 @@ for b in range(len(bValues)):
 
 avgBValue = avgBValue / len(bValues)
 
+print(avgRValue)
+print(avgGValue)
+print(avgBValue)
+
 #calculates the most seen values of red green and blue
 rValueCounts = []
 gValueCounts = []
@@ -50,6 +55,7 @@ for x in range(255):
 
 for r in rValues:
     rValueCounts[r - 1] = rValueCounts[r - 1] + 1
+    print(r)
 
 for g in rValues:
     gValueCounts[g - 1] = gValueCounts[g - 1] + 1
@@ -58,17 +64,21 @@ for b in rValues:
     bValueCounts[b - 1] = bValueCounts[b - 1] + 1
 
 #plots the counts of each rgb occurrence
-
 rSpace = range(1,256)
 gSpace = range(6,261)
 bSpace = range(11,266)
 
-print(rSpace)
 ax = plt.subplot(111)
 
-ax.bar(rSpace, rValueCounts, width=300, color='r', align='center')
-ax.bar(gSpace, gValueCounts, width=300, color='g', align='center')
-ax.bar(bSpace, bValueCounts, width=300, color='b', align='center')
+if rValueCounts == gValueCounts == bValueCounts:
+    print('match')
+
+#TODO:fix plots 
+ax.plot(rSpace, rValueCounts, label = "red")
+ax.plot(rSpace, gValueCounts, label = "green")
+ax.plot(rSpace, bValueCounts, label = "blue")
+
+
 
 plt.gcf().canvas.manager.set_window_title('Speed Test')
 # Set the graph title
@@ -78,7 +88,7 @@ plt.xlabel('RGB value')
 # Make sure the x-axis tick marks/labels are at each 1000
 plt.xticks(range(1,256))
 # Label the y axis
-plt.ylabel('Times in seconds (Python in red, C++ in yellow)')
+plt.ylabel('number of occurrence')
 
 plt.savefig("RGB_occurrences.png")
 

@@ -60,10 +60,9 @@
         echo '<br><img src="' . $target_file . '" alt=woops width=400 height=500><br />';
 
         #running statMaker.py
-        $command = escapeshellcmd('statMaker.py');
-        $output = shell_exec($command);
+        $data = $target_file
+        exec("python statMaker.py");
 
-        echo $output;
         echo "this has run";
 
         ?>
