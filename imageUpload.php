@@ -57,13 +57,13 @@
           }
         }
 
-        echo '<br><img src="' . $target_file . '" alt=woops width=400 height=500><br />';
-
+        echo '<br><img src="' . $target_file . '" alt="woops"><br />';
         #running statMaker.py
-        $data = $target_file
-        exec("python statMaker.py");
+        $command = escapeshellcmd('python statMaker.py ' . $target_file);
+        echo $command;
+        $output = shell_exec($command);
+        echo $output;
 
-        echo "this has run";
-
+        echo '<br><img src="RGB_occurrences.png" alt="oops"><br />';
         ?>
     </body>

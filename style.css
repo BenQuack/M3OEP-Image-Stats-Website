@@ -28,3 +28,8 @@ form {
     margin: 10px;
     border: 1px solid white;
 }
+
+img {
+    width: 50%;
+    height: auto;
+}
